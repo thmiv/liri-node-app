@@ -30,12 +30,13 @@ switch (liriQuery) {
         console.log("spotify ths");
         break;
     case 'movie-this':
-        console.log("movie this");
+        searchOmdb(searchItem);
         break;
     case 'do-what-it-says':
         console.log("do this");
-        break
-    default: console.log("Please enter valid search command.");
+        break;
+    default:
+        console.log("Please enter valid search command.");
 }
 
 function searchBandsInTown(artist) {
@@ -60,6 +61,34 @@ function searchBandsInTown(artist) {
                     chalk.magenta(eventVenue.country),
                     " on " + eventDate);
             }
+        }
+    });
+}
+
+function searchOmdb(movieName) {
+    if (movieName === "") {
+        movieName = "Mr Nobody";
+    }
+    // Then run a request to the OMDB API with the movie specified
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + bandsKey;
+    
+    // This line is just to help us debug against the actual URL.
+    console.log(queryUrl);
+
+    request(queryUrl, function (error, response, body) {
+
+        // If the request is successful
+        if (!error && response.statusCode === 200) {
+            var movieInfo = JSON.parse(body);
+            // Parse the body of the site and recover just the imdbRating
+            console.log("Title: " + movieInfo.Title,
+                        "\nRelease Year: " + movieInfo.Year,
+                        "\nIMDB Rating: " + movieInfo.Ratings[0].Value,
+                        "\nRottem Tomatoes: " + movieInfo.Ratings[1].Value,
+                        "\nCountry of origin: " + movieInfo.Country,
+                        "\nLanguage: " + movieInfo.Language,
+                        "\nActors : " + movieInfo.Actors,
+                        "\nPlot: " + movieInfo.Plot); 
         }
     });
 }
