@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/thmiv/liri-node-app#readme",
   "dependencies": {
+    "ajax": "0.0.4",
+    "chalk": "^2.4.1",
     "dotenv": "^6.0.0",
+    "jquery": "^3.3.1",
     "moment": "^2.22.2",
     "node-spotify-api": "^1.0.7",
     "request": "^2.88.0"
