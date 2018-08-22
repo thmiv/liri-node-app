@@ -42,9 +42,9 @@ switch (liriQuery) {
 
 function searchSpotify(song) {
     if (song === "") {
-        song = "The Sign";
+        song = "The Sign Ace Of Base";
     }
-    spotify.search({ type: 'track', query: song, market: 'US', limit: 6 }, function(err, data) {
+    spotify.search({ type: 'track', query: song, market: 'US', limit: 1 }, function(err, data) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
