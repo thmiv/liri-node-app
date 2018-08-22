@@ -1,5 +1,4 @@
 # liri-node-app
 
-// error messages
-    // check body
-    
+// node js app
+// not directly functional through browser
