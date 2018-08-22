@@ -5,7 +5,7 @@ var chalk = require("chalk");
 var moment = require("moment");
 var apiKeys = require("./keys.js");
 var Spotify = require("node-spotify-api");
-var bandsKey = apiKeys.bandsintown.key;
+var bandsKey = 'trilogy'; //apiKeys.bandsintown.key;
 var spotifyKeys = apiKeys.spotify;
 
 var spotify = new Spotify({
